@@ -2,21 +2,18 @@
 
 namespace Modules\Authorization\Http\Controllers;
 
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Authorization\Http\Requests\LoginRequest;
-use Validator, Input, Redirect  , Response;
+use Validator, Input, Redirect, Response;
 
 class LoginController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     * @return Renderable
+     * Login User.
+     * @return Json
      */
-    public function login(LoginRequest $request)
+    public function  login(LoginRequest $request): Json
     {
         if (!auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
             return Response::json([
@@ -28,9 +25,9 @@ class LoginController extends Controller
         } else {
             $user = auth()->getLastAttempted();
             if ($user->name) {
-               $permissions = $user->getAllPermissions()->pluck('name')->toArray();
-               $user = auth()->user();
-                $tokenResult =  $user->createToken('MyApp',array('test'));
+                $permissions = $user->getAllPermissions()->pluck('name')->toArray();
+                $user = auth()->user();
+                $tokenResult =  $user->createToken('MyApp',$permissions);
                 return response()->json([
                     'meta' => [
                         'status' => 'true',
@@ -65,62 +62,18 @@ class LoginController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     * @return Renderable
+     * Logout the user.
+     * @return Json
      */
-    public function create()
+    public function logout(Request $request): Json
     {
-        return view('authorization::create');
+        $request->user()->token()->revoke();
+        return response()->json([
+            'meta' => [
+                'status' => 'true',
+                'status_message' => 'Successfully logged out'
+            ],
+        ], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('authorization::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('authorization::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
