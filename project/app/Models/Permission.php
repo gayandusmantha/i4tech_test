@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Models\Role as SpatieRole;
-class Permission extends SpatieRole
+use Illuminate\Database\Eloquent\Model;
+class Permission extends Model
 {
     use HasFactory;
     protected $table = 'permissions';

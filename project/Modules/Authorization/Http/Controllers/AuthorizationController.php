@@ -10,9 +10,9 @@ class AuthorizationController extends Controller
 
     /**
      * Check user is validate.
-     * @return Json
+     * @return type
      */
-    public function validateToken(): Json
+    public function validateToken()
     {
         $res = Auth::guard('api')->check();
         return response()->json($res, 200);

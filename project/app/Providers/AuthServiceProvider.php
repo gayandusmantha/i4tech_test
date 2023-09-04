@@ -28,15 +28,14 @@ class AuthServiceProvider extends ServiceProvider
         try {
             $this->registerPolicies();
             $prmission = Permission::get()
-                ->pluck('description', 'name')->toArray();
+                ->pluck('id', 'name')->toArray();
             Passport::tokensCan(
                 $prmission
             );
-            //Passport::routes();
             Passport::personalAccessTokensExpireIn(Carbon::now()->addHours(24));
             Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
         } catch (\Exception $e) {
-            dd($e);
+           // dd($e);
           //  return $e;
         }
     }

@@ -11,9 +11,9 @@ class LoginController extends Controller
 {
     /**
      * Login User.
-     * @return Json
+     * @return type
      */
-    public function  login(LoginRequest $request): Json
+    public function  login(LoginRequest $request)
     {
         if (!auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
             return Response::json([
@@ -63,9 +63,9 @@ class LoginController extends Controller
 
     /**
      * Logout the user.
-     * @return Json
+     * @return type
      */
-    public function logout(Request $request): Json
+    public function logout(Request $request)
     {
         $request->user()->token()->revoke();
         return response()->json([
