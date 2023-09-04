@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->prefix('/project')->group(function () {
-    Route::GET('lit', 'ProjectController@show');
-    Route::GET('dropdown', 'ProjectController@dropdown');
-    Route::POST('create', 'ProjectController@create');
+    Route::GET('lit', 'ProjectController@show')->middleware('role:administrator|manager');;
+    Route::GET('dropdown', 'ProjectController@dropdown')->middleware('role:administrator|manager');;
+    Route::POST('create', 'ProjectController@create')->middleware('role:administrator');
 });
