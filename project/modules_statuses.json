@@ -1,0 +1,9 @@
+{
+    "AuthorizationController": true,
+    "Authorization": true,
+    "Settings": true,
+    "Invoice": true,
+    "Enrollment": true,
+    "Project": true,
+    "Task": true
+}
