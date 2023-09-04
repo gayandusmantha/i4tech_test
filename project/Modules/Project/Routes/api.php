@@ -15,6 +15,6 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->prefix('/project')->group(function () {
     Route::GET('lit', 'ProjectController@show');
+    Route::GET('dropdown', 'ProjectController@dropdown');
     Route::POST('create', 'ProjectController@create');
-
 });

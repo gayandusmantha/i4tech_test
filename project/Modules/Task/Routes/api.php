@@ -16,5 +16,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->prefix('/task')->group(function () {
     Route::POST('create', 'TaskController@create');
     Route::POST('update/{id}', 'TaskController@update');
-    Route::GET('show', 'TaskController@show')->middleware('permission:test');
+    Route::GET('show', 'TaskController@show')->middleware('role:test|manager');
 });

@@ -12,4 +12,9 @@ class ProjectRepository implements ProjectRepositoryInterface
     {
         return Project::create($data);
     }
+
+    public function dropdown(){
+        return  Project::get()
+            ->pluck('name', 'id');
+    }
 }
