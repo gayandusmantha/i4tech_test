@@ -29,9 +29,11 @@ class TaskRepository implements TaskRepositoryInterface
            $taskInfo = $taskInfo->orderBy('due_date', 'desc');
        }
 
-       if (isset(request()->project_id) && !empty(request()->project_id)) {
-           $projectID = request()->project_id;
-           $taskInfo = $taskInfo->where('project_id', $projectID);
+       if (isset(request()->project_name) && !empty(request()->project_name)) {
+           $projectName = request()->project_name;
+           $taskInfo = $taskInfo->whereHas('ProjectInfo', function ($q) use ($projectName) {
+               $q->where('name', 'like', '%' . $projectName . '%');
+           });
        }
 
        $perPage = request()->has('per_page') ? (int)request()->per_page : null;

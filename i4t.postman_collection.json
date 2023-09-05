@@ -51,254 +51,14 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "User",
-					"item": [
-						{
-							"name": "update user role",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "{{Accept}}",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "{{Authorization}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "{{Content-Type}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \n  \"roles\":  [\n      1\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/authorization/registration/update/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"authorization",
-										"registration",
-										"update",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
 				},
 				{
-					"name": "Role",
-					"item": [
-						{
-							"name": "create",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "{{Accept}}",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "{{Authorization}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "{{Content-Type}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"name\" : \"12\",\n  \"guard_name\" : \"web\",\n  \"permissions\":  [\n      1\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/authorization/role/store",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"authorization",
-										"role",
-										"store"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "{{Accept}}",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "{{Authorization}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "{{Content-Type}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"name\" : \"Test By gayan\",\n  \"permissions\":  [\n      1\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/authorization/role/update/12",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"authorization",
-										"role",
-										"update",
-										"12"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "list",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "{{Accept}}",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "{{Authorization}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "{{Content-Type}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": " ",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/authorization/role/list",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"authorization",
-										"role",
-										"list"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "{{Accept}}",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "{{Authorization}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "{{Content-Type}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": " ",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/authorization/role/list",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"authorization",
-										"role",
-										"list"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "create",
+					"name": "dropdown",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
@@ -326,154 +86,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/project/create",
+							"raw": "{{url}}/project/dropdown",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"project",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update user role Copy 2",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "{{Accept}}",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "{{Authorization}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "{{Content-Type}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n  \"roles\":  [\n      1\n  ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/authorization/registration/update/1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"authorization",
-								"registration",
-								"update",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "show userinfo",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "{{Accept}}",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "{{Authorization}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "{{Content-Type}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n  \"roles\":  [\n      1\n  ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/authorization/registration/show/1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"authorization",
-								"registration",
-								"show",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "show",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "{{Accept}}",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "{{Authorization}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "{{Content-Type}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " ",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/authorization/role/show/1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"authorization",
-								"role",
-								"show",
-								"1"
+								"dropdown"
 							]
 						}
 					},
@@ -654,7 +273,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n \"email\" : \"i4t@user.com\",\n\"password\" : \"admin1234\"\n}",
+					"raw": "{\n \"email\" : \"admin@i4t.com\",\n\"password\" : \"admin1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -669,6 +288,114 @@
 					"path": [
 						"backend",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "{{Content-Type}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/authorization/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authorization",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "{{Content-Type}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"email\" : \"i4t@user.com\",\n\"password\" : \"admin1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/backend/validate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"backend",
+						"validate"
 					]
 				}
 			},
